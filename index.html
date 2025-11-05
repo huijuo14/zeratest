@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoFaucet Pro - Professional Cryptocurrency Faucet</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS styles -->
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 0;
+        }
+        .jumbotron h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .jumbotron .lead {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        .container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .dashboard-container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            font-weight: bold;
+        }
+        .balance-card {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .balance-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .progress {
+            height: 10px;
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.2);
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+        }
+        .feature-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            padding: 15px 25px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .feature-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+            color: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px 0;
+            margin-top: 60px;
+        }
+        .footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        .level-badge {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .alert {
+            border-radius: 10px;
+            border: none;
+        }
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+        }
+        .form-control:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+        }
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: bold;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-coins"></i> CryptoFaucet Pro
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-wallet"></i> Withdraw</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-users"></i> Referral</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-gift"></i> Daily Bonus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-faucet"></i> Faucet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-exchange-alt"></i> Converter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-mouse-pointer"></i> PTC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h1 class="display-4">Welcome to <span style="color: #ffff00;">CryptoFaucet Pro</span></h1>
+            <p class="lead">The most advanced cryptocurrency faucet platform - Earn ZER with multiple methods</p>
+            <div class="mt-4">
+                <i class="fas fa-coins" style="font-size: 4rem; opacity: 0.3;"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div class="container">
+        <div class="dashboard-container">
+            <!-- User Balance Section -->
+            <div class="balance-card">
+                <h3><i class="fas fa-wallet"></i> Your Wallet Balance</h3>
+                <div class="balance-amount">0.03402000 ZER</div>
+                <p>Credits Balance: <strong>0 Credits</strong></p>
+            </div>
+
+            <!-- User Level & Progress -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-star"></i> Your Level & Progress</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="level-badge">Level 0 - Beginner</div>
+                            <p class="mt-3"><strong>Current Progress:</strong></p>
+                            <div class="progress mb-3">
+                                <div class="progress-bar" style="width: 5%"></div>
+                            </div>
+                            <p><strong>5%</strong> complete (95 XP needed for Level 1)</p>
+                            <p><strong>Current XP Balance:</strong> 5 XP</p>
+                            <p><strong>Claims Today:</strong> 0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-chart-line"></i> Lifetime Statistics</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number">0.03402000</div>
+                                    <div class="stat-label">ZER Total Paid</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">0</div>
+                                    <div class="stat-label">Claims Made</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">5</div>
+                                    <div class="stat-label">XP Earned</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earning Features Grid -->
+            <h3 class="text-center mt-5 mb-4"><i class="fas fa-money-bill-wave"></i> Available Earning Methods</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-faucet"></i>
+                    </div>
+                    <h5>Faucet Claims</h5>
+                    <p>Claim free Zatoshi every few hours. Current reward: 0.5 Zatoshi per claim.</p>
+                    <button class="feature-btn" onclick="claimFaucet()">
+                        <i class="fas fa-plus-circle"></i> Start Claiming
+                    </button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h5>Daily Bonus</h5>
+                    <p>Get a daily bonus for logging in. Bonus increases with your level.</p>
+                    <button class="feature-btn" onclick="claimDaily()">
+                        <i class="fas fa-calendar-check"></i> Claim Daily
+                    </button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h5>Referral Program</h5>
+                    <p>Earn 10% commission from your referrals' earnings. Share your link!</p>
+                    <button class="feature-btn" onclick="showReferral()">
+                        <i class="fas fa-share-alt"></i> Get Referral Link
+                    </button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <h5>PTC (Paid-to-Click)</h5>
+                    <p>View advertisements and earn Zatoshi. Each click pays 0.1-1 Zatoshi.</p>
+                    <button class="feature-btn" onclick="showPTC()">
+                        <i class="fas fa-play"></i> Start PTC
+                    </button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h5>Converter</h5>
+                    <p>Convert between Zatoshi and ZER. Minimum withdrawal: 0.01 ZER</p>
+                    <button class="feature-btn" onclick="showConverter()">
+                        <i class="fas fa-exchange-alt"></i> Convert
+                    </button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h5>Withdraw</h5>
+                    <p>Withdraw your earnings to your ZER wallet. Instant processing.</p>
+                    <button class="feature-btn" onclick="showWithdraw()">
+                        <i class="fas fa-money-bill-wave"></i> Withdraw
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="text-center mt-5">
+                <h4>Quick Actions</h4>
+                <button class="btn btn-success btn-lg mx-2" onclick="claimFaucet()">
+                    <i class="fas fa-faucet"></i> Quick Faucet Claim
+                </button>
+                <button class="btn btn-outline-success btn-lg mx-2" onclick="claimDaily()">
+                    <i class="fas fa-gift"></i> Daily Bonus
+                </button>
+                <button class="btn btn-outline-success btn-lg mx-2" onclick="showReferral()">
+                    <i class="fas fa-users"></i> Referral Link
+                </button>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="mt-5">
+                <h4><i class="fas fa-clock"></i> Recent Activity</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> 
+                            <strong>Welcome!</strong> You're logged in with wallet address: <code>t1fnnnSxp1XW4dkG8ZxJpNJykLSkq7seoWZ</code>
+                        </div>
+                        <p class="text-muted">No recent activity. Start earning by claiming from the faucet above!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Launch Special -->
+            <div class="mt-5">
+                <div class="alert alert-warning text-center">
+                    <h4><i class="fas fa-rocket"></i> Launch Special Offer!</h4>
+                    <p class="mb-3"><strong>First 100 users get 10x bonus</strong> on all faucet claims and daily bonuses!</p>
+                    <p class="mb-0"><strong>Limited Time:</strong> This offer expires in 30 days from your first claim.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>CryptoFaucet Pro</h5>
+                    <p>Professional cryptocurrency faucet platform for earning ZER tokens through multiple methods.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Quick Links</h5>
+                    <p>
+                        <a href="#">Dashboard</a> | 
+                        <a href="#">Withdraw</a> | 
+                        <a href="#">Referral</a> | 
+                        <a href="#">Support</a><br>
+                        <a href="https://zerochain.info/" target="_blank">ZeroChain Explorer</a> | 
+                        <a href="https://coinmarketcap.com/currencies/zero/" target="_blank">CoinMarketCap</a> | 
+                        <a href="https://www.coingecko.com/en/coins/zero" target="_blank">CoinGecko</a>
+                    </p>
+                </div>
+            </div>
+            <hr style="border-color: #34495e;">
+            <div class="text-center">
+                <p>&copy; 2025 CryptoFaucet Pro. All Rights Reserved.</p>
+                <p class="small">Built with modern web technologies for optimal performance and security.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script>
+        // Auto-login functionality
+        window.addEventListener('load', function() {
+            const storedAddress = localStorage.getItem('address');
+            if (!storedAddress) {
+                localStorage.setItem('address', 't1fnnnSxp1XW4dkG8ZxJpNJykLSkq7seoWZ');
+            }
+        });
+
+        // Earning method functions
+        function claimFaucet() {
+            const timer = 3600; // 1 hour timer in seconds
+            const lastClaim = localStorage.getItem('lastFaucetClaim');
+            const now = Math.floor(Date.now() / 1000);
+            
+            if (lastClaim && (now - lastClaim) < timer) {
+                const timeLeft = timer - (now - lastClaim);
+                const hours = Math.floor(timeLeft / 3600);
+                const minutes = Math.floor((timeLeft % 3600) / 60);
+                alert(`Please wait ${hours}h ${minutes}m before claiming again!`);
+                return;
+            }
+            
+            // Simulate faucet claim
+            const reward = Math.random() * 0.5 + 0.1; // 0.1 to 0.6 Zatoshi
+            const currentBalance = parseFloat(document.querySelector('.balance-amount').textContent);
+            const newBalance = currentBalance + reward;
+            
+            // Update display
+            document.querySelector('.balance-amount').textContent = newBalance.toFixed(8) + ' ZER';
+            
+            // Update XP
+            const currentXP = 5;
+            const newXP = currentXP + 10;
+            document.querySelector('.card-body p').innerHTML = `
+                <div class="level-badge">Level 0 - Beginner</div>
+                <p class="mt-3"><strong>Current Progress:</strong></p>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: ${Math.min(newXP, 100)}%"></div>
+                </div>
+                <p><strong>${Math.min(newXP, 100)}%</strong> complete (${Math.max(100 - newXP, 0)} XP needed for Level 1)</p>
+                <p><strong>Current XP Balance:</strong> ${newXP} XP</p>
+                <p><strong>Claims Today:</strong> 1</p>
+            `;
+            
+            // Save claim time
+            localStorage.setItem('lastFaucetClaim', now);
+            
+            alert(`🎉 Success! You claimed ${reward.toFixed(6)} ZER!\n\n10 XP added to your account!`);
+        }
+
+        function claimDaily() {
+            const today = new Date().toDateString();
+            const lastDaily = localStorage.getItem('lastDailyClaim');
+            
+            if (lastDaily === today) {
+                alert('Daily bonus already claimed today! Come back tomorrow.');
+                return;
+            }
+            
+            // Simulate daily bonus
+            const bonus = Math.random() * 1 + 0.5; // 0.5 to 1.5 ZER
+            const currentBalance = parseFloat(document.querySelector('.balance-amount').textContent);
+            const newBalance = currentBalance + bonus;
+            
+            // Update display
+            document.querySelector('.balance-amount').textContent = newBalance.toFixed(8) + ' ZER';
+            
+            // Save daily claim
+            localStorage.setItem('lastDailyClaim', today);
+            
+            alert(`🎁 Daily bonus claimed! You received ${bonus.toFixed(6)} ZER!\n\nReturn tomorrow for another bonus!`);
+        }
+
+        function showReferral() {
+            const userAddress = 't1fnnnSxp1XW4dkG8ZxJpNJykLSkq7seoWZ';
+            const referralLink = window.location.origin + '/?ref=' + userAddress;
+            
+            // Create modal for referral
+            const modal = `
+                <div class="modal fade" id="referralModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><i class="fas fa-users"></i> Your Referral Link</h5>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Share this link to earn 10% commission from your referrals' earnings:</p>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="referralLinkInput" value="${referralLink}" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-success" onclick="copyReferral()">Copy</button>
+                                    </div>
+                                </div>
+                                <div class="alert alert-info">
+                                    <strong>Commission Rate:</strong> 10% of all your referrals' earnings
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', modal);
+            $('#referralModal').modal('show');
+        }
+
+        function copyReferral() {
+            const input = document.getElementById('referralLinkInput');
+            input.select();
+            document.execCommand('copy');
+            alert('Referral link copied to clipboard!');
+        }
+
+        function showPTC() {
+            alert('🔗 PTC Ads section coming soon!\n\nThis feature will allow you to view advertisements and earn additional ZER.\n\nExpected earnings: 0.1 - 1 Zatoshi per click');
+        }
+
+        function showConverter() {
+            const currentBalance = parseFloat(document.querySelector('.balance-amount').textContent);
+            const zatoshi = currentBalance * 100000000; // Convert to zatoshi
+            
+            const modal = `
+                <div class="modal fade" id="converterModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><i class="fas fa-exchange-alt"></i> Currency Converter</h5>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Current Balance:</strong></p>
+                                <p>${currentBalance.toFixed(8)} ZER = ${Math.floor(zatoshi)} Zatoshi</p>
+                                <div class="alert alert-info">
+                                    <strong>Note:</strong> Minimum withdrawal amount is 0.01 ZER (1,000,000 Zatoshi)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', modal);
+            $('#converterModal').modal('show');
+        }
+
+        function showWithdraw() {
+            const currentBalance = parseFloat(document.querySelector('.balance-amount').textContent);
+            const minimumWithdraw = 0.01;
+            
+            if (currentBalance < minimumWithdraw) {
+                alert(`⚠️ Minimum withdrawal amount is ${minimumWithdraw} ZER\n\nCurrent balance: ${currentBalance.toFixed(8)} ZER\n\nYou need ${(minimumWithdraw - currentBalance).toFixed(8)} ZER more to withdraw.`);
+                return;
+            }
+            
+            const modal = `
+                <div class="modal fade" id="withdrawModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><i class="fas fa-wallet"></i> Withdraw Funds</h5>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label>Withdrawal Amount (ZER):</label>
+                                        <input type="number" class="form-control" value="${currentBalance.toFixed(8)}" step="0.00000001" min="0.01" max="${currentBalance}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Your ZER Wallet Address:</label>
+                                        <input type="text" class="form-control" value="t1fnnnSxp1XW4dkG8ZxJpNJykLSkq7seoWZ" readonly>
+                                    </div>
+                                    <div class="alert alert-warning">
+                                        <strong>Processing Time:</strong> 1-24 hours<br>
+                                        <strong>Network Fee:</strong> 0.0001 ZER
+                                    </div>
+                                    <button type="button" class="btn btn-success btn-block">Confirm Withdrawal</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', modal);
+            $('#withdrawModal').modal('show');
+        }
+
+        // Auto-refresh dashboard stats every 30 seconds
+        setInterval(function() {
+            console.log('Dashboard stats refresh simulation');
+        }, 30000);
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
