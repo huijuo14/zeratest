@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoFaucet Pro - Fixed Impression Tracking</title>
+    <title>CryptoHub - Your Cryptocurrency Information Center</title>
     <style>
+        /* Base styles */
         * {
             margin: 0;
             padding: 0;
@@ -13,21 +14,22 @@
         }
         
         body {
-            background-color: #f0f0f0;
+            background-color: #f5f7fa;
             color: #333;
+            line-height: 1.6;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Header styles */
         header {
-            background: linear-gradient(135deg, #28a745, #20c997);
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
             color: white;
-            padding: 15px 0;
+            padding: 20px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
@@ -38,439 +40,421 @@
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 28px;
             font-weight: bold;
         }
         
-        .user-info {
-            font-size: 0.9rem;
+        .logo span {
+            color: #ffd700;
         }
         
-        /* Ad Container Styles */
-        .ad-container {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center;
-            position: relative;
-        }
-        
-        .ad-container h3 {
-            margin-bottom: 15px;
-            color: #28a745;
-            font-size: 1.2rem;
-        }
-        
-        .ad-frame {
-            margin: 10px 0;
-            border: 2px solid #e9ecef;
-            border-radius: 4px;
-            display: inline-block;
-        }
-        
-        .ad-row {
+        nav ul {
             display: flex;
-            gap: 20px;
-            margin: 20px 0;
+            list-style: none;
         }
         
-        .ad-col {
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        
+        /* Banner ad styles */
+        .banner-ad {
+            margin: 20px auto;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .banner-728x90 {
+            width: 728px;
+            height: 90px;
+        }
+        
+        .banner-468x60 {
+            width: 468px;
+            height: 60px;
+        }
+        
+        .banner-300x250 {
+            width: 300px;
+            height: 250px;
+        }
+        
+        /* Main content styles */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #ffed4a;
+        }
+        
+        .content-section {
+            display: flex;
+            margin-bottom: 40px;
+        }
+        
+        .main-content {
+            flex: 3;
+            padding-right: 30px;
+        }
+        
+        .sidebar {
             flex: 1;
         }
         
-        /* Stats */
-        .stats {
+        .card {
             background: white;
-            padding: 20px;
             border-radius: 8px;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 25px;
         }
         
-        .stat-grid {
+        .card h2 {
+            color: #1a2980;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .crypto-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
         
-        .stat-item {
-            text-align: center;
-            padding: 15px;
+        .crypto-item {
             background: #f8f9fa;
-            border-radius: 6px;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
         }
         
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .crypto-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .crypto-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .price-up {
             color: #28a745;
         }
         
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
+        .price-down {
+            color: #dc3545;
         }
         
-        /* Status Styles */
-        .status {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        
-        .success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .info {
-            background: #cce7ff;
-            color: #004085;
-            border: 1px solid #b3d7ff;
-        }
-        
-        .warning {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        /* Buttons */
-        .btn {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-            font-weight: bold;
-        }
-        
-        /* Footer */
+        /* Footer styles */
         footer {
-            background: #2c3e50;
+            background: #1a2980;
             color: white;
-            padding: 30px 0;
+            padding: 40px 0 20px;
             margin-top: 40px;
-            text-align: center;
         }
         
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive styles */
         @media (max-width: 768px) {
-            .ad-row {
+            .header-content {
                 flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .content-section {
+                flex-direction: column;
+            }
+            
+            .main-content {
+                padding-right: 0;
+            }
+            
+            .banner-728x90, .banner-468x60 {
+                width: 100%;
+                max-width: 728px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-coins"></i> CryptoFaucet Pro
-                </div>
-                <div class="user-info">
-                    Wallet: t1fnnnSxp1XW4dkG8ZxJpNJykLSkq7seoWZ
-                </div>
+                <div class="logo">Crypto<span>Hub</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Market</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Learn</a></li>
+                        <li><a href="#">Wallet</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
+    <!-- 728x90 Banner Ad -->
     <div class="container">
-        <!-- Statistics -->
-        <div class="stats">
-            <h3>Ad Performance Analytics</h3>
-            <div class="stat-grid">
-                <div class="stat-item">
-                    <div class="stat-value" id="totalImpressions">0</div>
-                    <div class="stat-label">Total Impressions</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="totalClicks">0</div>
-                    <div class="stat-label">Total Clicks</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="activeAds">3</div>
-                    <div class="stat-label">Active Ad Slots</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="revenue">$0.00</div>
-                    <div class="stat-label">Estimated Revenue</div>
-                </div>
-            </div>
+        <div class="banner-ad banner-728x90">
+            [728x90 Ad Space - Your Ad Here]
         </div>
+    </div>
 
-        <!-- Ad 1: Top Leaderboard -->
-        <div class="ad-container">
-            <h3>Advertisement #1 - 728x90 Leaderboard</h3>
-            <div class="ad-frame">
-                <iframe 
-                    src="https://zerads.com/ad/ad.php?width=728&ref=9953" 
-                    marginwidth="0" 
-                    marginheight="0" 
-                    width="728" 
-                    height="90" 
-                    scrolling="no" 
-                    border="0" 
-                    frameborder="0"
-                    id="zeroads-1">
-                </iframe>
-            </div>
-            <div class="status info" id="status-1">
-                Loading advertisement #1...
-            </div>
-            <button class="btn" onclick="forceImpression(1)">📊 Force Count Impression</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to the Future of Finance</h1>
+            <p>Discover the world of cryptocurrencies, blockchain technology, and decentralized finance. Stay updated with real-time market data and expert insights.</p>
+            <a href="#" class="btn">Explore Crypto Market</a>
         </div>
+    </section>
 
-        <!-- Ad Row -->
-        <div class="ad-row">
-            <div class="ad-col">
-                <div class="ad-container">
-                    <h3>Advertisement #2 - 300x250 Rectangle</h3>
-                    <div class="ad-frame">
-                        <iframe 
-                            src="https://zerads.com/ad/ad.php?width=300&height=250&ref=9953" 
-                            marginwidth="0" 
-                            marginheight="0" 
-                            width="300" 
-                            height="250" 
-                            scrolling="no" 
-                            border="0" 
-                            frameborder="0"
-                            id="zeroads-2">
-                        </iframe>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-section">
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <!-- 468x60 Banner Ad -->
+                <div class="banner-ad banner-468x60">
+                    [468x60 Ad Space - Your Ad Here]
+                </div>
+
+                <!-- Featured Cryptocurrencies -->
+                <div class="card">
+                    <h2>Top Cryptocurrencies</h2>
+                    <div class="crypto-grid">
+                        <div class="crypto-item">
+                            <div class="crypto-icon">₿</div>
+                            <h3>Bitcoin (BTC)</h3>
+                            <p>$42,156.78</p>
+                            <p class="price-up">+2.34%</p>
+                        </div>
+                        <div class="crypto-item">
+                            <div class="crypto-icon">Ξ</div>
+                            <h3>Ethereum (ETH)</h3>
+                            <p>$2,845.12</p>
+                            <p class="price-up">+1.78%</p>
+                        </div>
+                        <div class="crypto-item">
+                            <div class="crypto-icon">●</div>
+                            <h3>Cardano (ADA)</h3>
+                            <p>$0.5123</p>
+                            <p class="price-down">-0.45%</p>
+                        </div>
+                        <div class="crypto-item">
+                            <div class="crypto-icon">✸</div>
+                            <h3>Solana (SOL)</h3>
+                            <p>$98.76</p>
+                            <p class="price-up">+5.21%</p>
+                        </div>
                     </div>
-                    <div class="status info" id="status-2">
-                        Loading advertisement #2...
+                </div>
+
+                <!-- Latest News -->
+                <div class="card">
+                    <h2>Latest Crypto News</h2>
+                    <div class="news-item">
+                        <h3>Bitcoin ETF Approval Expected Soon</h3>
+                        <p>Financial regulators are reportedly close to approving the first Bitcoin ETF, which could bring billions in institutional investment to the crypto market.</p>
+                        <a href="#">Read more</a>
                     </div>
-                    <button class="btn" onclick="forceImpression(2)">📊 Force Count Impression</button>
+                    <div class="news-item">
+                        <h3>Ethereum Completes Major Upgrade</h3>
+                        <p>The Ethereum network has successfully implemented its latest upgrade, reducing gas fees and improving transaction speeds significantly.</p>
+                        <a href="#">Read more</a>
+                    </div>
+                    <div class="news-item">
+                        <h3>Central Banks Exploring Digital Currencies</h3>
+                        <p>Over 80% of central banks worldwide are now actively researching or developing their own digital currencies, according to a new report.</p>
+                        <a href="#">Read more</a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="ad-col">
-                <div class="ad-container">
-                    <h3>Advertisement #3 - 300x250 Rectangle</h3>
-                    <div class="ad-frame">
-                        <iframe 
-                            src="https://zerads.com/ad/ad.php?width=300&height=250&ref=9953" 
-                            marginwidth="0" 
-                            marginheight="0" 
-                            width="300" 
-                            height="250" 
-                            scrolling="no" 
-                            border="0" 
-                            frameborder="0"
-                            id="zeroads-3">
-                        </iframe>
-                    </div>
-                    <div class="status info" id="status-3">
-                        Loading advertisement #3...
-                    </div>
-                    <button class="btn" onclick="forceImpression(3)">📊 Force Count Impression</button>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- 300x250 Banner Ad -->
+                <div class="banner-ad banner-300x250">
+                    [300x250 Ad Space - Your Ad Here]
                 </div>
-            </div>
-        </div>
 
-        <!-- Control Panel -->
-        <div class="stats">
-            <h3>Ad Control Panel</h3>
-            <div class="status warning">
-                <strong>Issue Detected:</strong> Clicks are counting but impressions may not be tracked properly by Zero Ads.
-            </div>
-            <div style="text-align: center; margin: 15px 0;">
-                <button class="btn" onclick="refreshAllAds()">🔄 Refresh All Ads</button>
-                <button class="btn" onclick="forceAllImpressions()">📊 Count All Impressions</button>
-                <button class="btn" onclick="simulateUserActivity()">🎯 Simulate User Activity</button>
-            </div>
-        </div>
+                <!-- Quick Links -->
+                <div class="card">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#">Crypto Exchanges</a></li>
+                        <li><a href="#">Wallet Guide</a></li>
+                        <li><a href="#">Mining Tutorial</a></li>
+                        <li><a href="#">DeFi Platforms</a></li>
+                        <li><a href="#">NFT Marketplace</a></li>
+                    </ul>
+                </div>
 
-        <!-- Impression Solutions -->
-        <div class="ad-container">
-            <h3>Impression Tracking Solutions</h3>
-            <div class="status info">
-                <strong>Why impressions might not count:</strong>
-                <ul style="text-align: left; margin: 10px 0; padding-left: 20px;">
-                    <li>Ad network only counts impressions when ads are fully rendered</li>
-                    <li>Iframes might not trigger proper impression tracking</li>
-                    <li>Ad blockers preventing tracking scripts</li>
-                    <li>Network might require specific viewability criteria</li>
-                </ul>
+                <!-- Newsletter -->
+                <div class="card">
+                    <h2>Newsletter</h2>
+                    <p>Subscribe to get daily crypto updates</p>
+                    <form>
+                        <input type="email" placeholder="Your email" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 CryptoFaucet Pro. Zero Ads Integration</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About CryptoHub</h3>
+                    <p>Your trusted source for cryptocurrency information, market data, and educational resources since 2020.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Market</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Learn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Glossary</a></li>
+                        <li><a href="#">Whitepapers</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Email: info@cryptohub.com</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Address: 123 Crypto Street, Blockchain City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 CryptoHub. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </div>
         </div>
     </footer>
-
-    <script>
-        // Track impressions and clicks
-        let totalImpressions = 0;
-        let totalClicks = 0;
-        let revenue = 0;
-        
-        // Initialize tracking
-        function initAdTracking() {
-            // Track initial page load as impression
-            setTimeout(() => {
-                trackImpression(3); // Count 3 impressions for initial load
-            }, 1000);
-            
-            // Set up visibility tracking for each ad
-            setupVisibilityTracking();
-            
-            // Set up click tracking
-            setupClickTracking();
-        }
-        
-        // Track when ads become visible in viewport
-        function setupVisibilityTracking() {
-            const ads = ['zeroads-1', 'zeroads-2', 'zeroads-3'];
-            
-            ads.forEach((adId, index) => {
-                const adFrame = document.getElementById(adId);
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Ad is visible in viewport
-                            trackImpression(1);
-                            updateStatus(index + 1, `✅ Visible & Counting Impressions`);
-                        }
-                    });
-                }, { threshold: 0.5 }); // 50% of ad must be visible
-                
-                observer.observe(adFrame);
-            });
-        }
-        
-        // Track clicks on ad containers
-        function setupClickTracking() {
-            const ads = ['zeroads-1', 'zeroads-2', 'zeroads-3'];
-            
-            ads.forEach((adId, index) => {
-                const adFrame = document.getElementById(adId);
-                
-                // Note: We can't directly track clicks inside iframes due to security
-                // But we can track when users interact with ad containers
-                adFrame.parentElement.addEventListener('click', () => {
-                    totalClicks++;
-                    document.getElementById('totalClicks').textContent = totalClicks;
-                    updateRevenue();
-                });
-            });
-        }
-        
-        // Manual impression tracking
-        function trackImpression(count) {
-            totalImpressions += count;
-            document.getElementById('totalImpressions').textContent = totalImpressions;
-            updateRevenue();
-            
-            // Send to console for debugging
-            console.log(`📊 Impression tracked: +${count} | Total: ${totalImpressions}`);
-        }
-        
-        // Update revenue estimation
-        function updateRevenue() {
-            // Estimate $0.50 CPM for impressions + $0.10 CPC for clicks
-            revenue = (totalImpressions * 0.0005) + (totalClicks * 0.10);
-            document.getElementById('revenue').textContent = '$' + revenue.toFixed(2);
-        }
-        
-        // Force impression count for specific ad
-        function forceImpression(adNumber) {
-            trackImpression(1);
-            updateStatus(adNumber, `📊 Manual Impression Counted`);
-            
-            // Also try to refresh the ad
-            refreshAd(adNumber);
-        }
-        
-        // Force all impressions
-        function forceAllImpressions() {
-            trackImpression(3);
-            for (let i = 1; i <= 3; i++) {
-                updateStatus(i, `📊 Manual Impression Counted`);
-            }
-            alert('✅ Counted 3 manual impressions!');
-        }
-        
-        // Refresh specific ad
-        function refreshAd(adNumber) {
-            const adFrame = document.getElementById(`zeroads-${adNumber}`);
-            const statusDiv = document.getElementById(`status-${adNumber}`);
-            
-            statusDiv.className = 'status info';
-            statusDiv.innerHTML = `Refreshing advertisement #${adNumber}...`;
-            
-            // Force refresh by adding timestamp
-            const currentSrc = adFrame.src;
-            const separator = currentSrc.includes('?') ? '&' : '?';
-            adFrame.src = currentSrc.split('?')[0] + separator + 't=' + new Date().getTime();
-            
-            // Track refresh as new impression
-            setTimeout(() => trackImpression(1), 1000);
-        }
-        
-        // Refresh all ads
-        function refreshAllAds() {
-            for (let i = 1; i <= 3; i++) {
-                refreshAd(i);
-            }
-            alert('All ads refreshed! +3 impressions counted');
-        }
-        
-        // Update status display
-        function updateStatus(adNumber, message) {
-            const statusDiv = document.getElementById(`status-${adNumber}`);
-            statusDiv.className = 'status success';
-            statusDiv.innerHTML = message;
-        }
-        
-        // Simulate user activity to trigger more impressions
-        function simulateUserActivity() {
-            // Scroll to each ad to trigger visibility
-            const ads = [1, 2, 3];
-            let currentAd = 0;
-            
-            const scrollInterval = setInterval(() => {
-                if (currentAd < ads.length) {
-                    const adElement = document.getElementById(`zeroads-${ads[currentAd]}`);
-                    adElement.scrollIntoView({ behavior: 'smooth' });
-                    trackImpression(1);
-                    currentAd++;
-                } else {
-                    clearInterval(scrollInterval);
-                    alert('🎯 Simulated user activity completed! +3 impressions');
-                }
-            }, 1000);
-        }
-        
-        // Auto-refresh ads every 2 minutes with impression counting
-        setInterval(() => {
-            refreshAllAds();
-            console.log('🔄 Auto-refresh completed with impression tracking');
-        }, 120000);
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initAdTracking);
-    </script>
-    
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
 </html>
