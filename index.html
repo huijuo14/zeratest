@@ -79,6 +79,7 @@
             align-items: center;
             color: #666;
             font-weight: bold;
+            overflow: hidden;
         }
         
         .banner-728x90 {
@@ -94,6 +95,18 @@
         .banner-300x250 {
             width: 300px;
             height: 250px;
+        }
+        
+        /* Ad placeholder styling */
+        .ad-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            color: #888;
+            font-size: 14px;
         }
         
         /* Main content styles */
@@ -195,6 +208,38 @@
             color: #dc3545;
         }
         
+        .news-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .news-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .news-item h3 {
+            color: #1a2980;
+            margin-bottom: 10px;
+        }
+        
+        .news-item p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .news-item a {
+            color: #26d0ce;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+        
         /* Footer styles */
         footer {
             background: #1a2980;
@@ -247,6 +292,15 @@
             color: #aaa;
         }
         
+        .copyright a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+        
         /* Responsive styles */
         @media (max-width: 768px) {
             .header-content {
@@ -257,10 +311,11 @@
             nav ul {
                 margin-top: 15px;
                 justify-content: center;
+                flex-wrap: wrap;
             }
             
             nav ul li {
-                margin: 0 10px;
+                margin: 5px 10px;
             }
             
             .content-section {
@@ -309,7 +364,18 @@
     <!-- 728x90 Banner Ad -->
     <div class="container">
         <div class="banner-ad banner-728x90">
-            [728x90 Ad Space - Your Ad Here]
+            <!-- Zero Crypto Advertising Network 728x90 Banner Code -->
+            <script type="text/javascript">
+                var zc_ad_unit = "728x90";
+                var zc_siteid = "your_site_id_here";
+                var zc_position = "top_banner";
+            </script>
+            <script type="text/javascript" src="https://ads.zerocrypto.com/banner.js"></script>
+            <noscript>
+                <div class="ad-placeholder">
+                    728x90 Ad - Enable JavaScript for ads
+                </div>
+            </noscript>
         </div>
     </div>
 
@@ -329,7 +395,18 @@
             <div class="main-content">
                 <!-- 468x60 Banner Ad -->
                 <div class="banner-ad banner-468x60">
-                    [468x60 Ad Space - Your Ad Here]
+                    <!-- Zero Crypto Advertising Network 468x60 Banner Code -->
+                    <script type="text/javascript">
+                        var zc_ad_unit = "468x60";
+                        var zc_siteid = "your_site_id_here";
+                        var zc_position = "content_banner";
+                    </script>
+                    <script type="text/javascript" src="https://ads.zerocrypto.com/banner.js"></script>
+                    <noscript>
+                        <div class="ad-placeholder">
+                            468x60 Ad - Enable JavaScript for ads
+                        </div>
+                    </noscript>
                 </div>
 
                 <!-- Featured Cryptocurrencies -->
@@ -388,7 +465,18 @@
             <div class="sidebar">
                 <!-- 300x250 Banner Ad -->
                 <div class="banner-ad banner-300x250">
-                    [300x250 Ad Space - Your Ad Here]
+                    <!-- Zero Crypto Advertising Network 300x250 Banner Code -->
+                    <script type="text/javascript">
+                        var zc_ad_unit = "300x250";
+                        var zc_siteid = "your_site_id_here";
+                        var zc_position = "sidebar_banner";
+                    </script>
+                    <script type="text/javascript" src="https://ads.zerocrypto.com/banner.js"></script>
+                    <noscript>
+                        <div class="ad-placeholder">
+                            300x250 Ad - Enable JavaScript for ads
+                        </div>
+                    </noscript>
                 </div>
 
                 <!-- Quick Links -->
@@ -456,5 +544,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Additional Ad Script for Better Performance -->
+    <script type="text/javascript">
+        // Initialize ad tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('CryptoHub - Ad integration ready');
+            
+            // You can add additional ad-related JavaScript here
+            // For example, tracking ad impressions or clicks
+        });
+    </script>
 </body>
 </html>
