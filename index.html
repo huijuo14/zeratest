@@ -97,6 +97,12 @@
             height: 250px;
         }
         
+        /* Ad iframe styling */
+        .ad-iframe {
+            border: none;
+            display: block;
+        }
+        
         /* Ad placeholder styling */
         .ad-placeholder {
             width: 100%;
@@ -331,6 +337,13 @@
                 max-width: 728px;
             }
             
+            .banner-728x90 iframe,
+            .banner-468x60 iframe,
+            .banner-300x250 iframe {
+                max-width: 100%;
+                height: auto;
+            }
+            
             .hero h1 {
                 font-size: 36px;
             }
@@ -364,18 +377,18 @@
     <!-- 728x90 Banner Ad -->
     <div class="container">
         <div class="banner-ad banner-728x90">
-            <!-- Zero Crypto Advertising Network 728x90 Banner Code -->
-            <script type="text/javascript">
-                var zc_ad_unit = "728x90";
-                var zc_siteid = "your_site_id_here";
-                var zc_position = "top_banner";
-            </script>
-            <script type="text/javascript" src="https://ads.zerocrypto.com/banner.js"></script>
-            <noscript>
-                <div class="ad-placeholder">
-                    728x90 Ad - Enable JavaScript for ads
-                </div>
-            </noscript>
+            <!-- Zero Crypto Advertising Network 728x90 Banner -->
+            <iframe 
+                src="https://zerads.com/ad/ad.php?width=728&ref=9953" 
+                marginwidth="0" 
+                marginheight="0" 
+                width="728" 
+                height="90" 
+                scrolling="no" 
+                border="0" 
+                frameborder="0"
+                class="ad-iframe">
+            </iframe>
         </div>
     </div>
 
@@ -395,18 +408,18 @@
             <div class="main-content">
                 <!-- 468x60 Banner Ad -->
                 <div class="banner-ad banner-468x60">
-                    <!-- Zero Crypto Advertising Network 468x60 Banner Code -->
-                    <script type="text/javascript">
-                        var zc_ad_unit = "468x60";
-                        var zc_siteid = "your_site_id_here";
-                        var zc_position = "content_banner";
-                    </script>
-                    <script type="text/javascript" src="https://ads.zerocrypto.com/banner.js"></script>
-                    <noscript>
-                        <div class="ad-placeholder">
-                            468x60 Ad - Enable JavaScript for ads
-                        </div>
-                    </noscript>
+                    <!-- Zero Crypto Advertising Network 468x60 Banner -->
+                    <iframe 
+                        src="https://zerads.com/ad/ad.php?width=468&ref=9953" 
+                        marginwidth="0" 
+                        marginheight="0" 
+                        width="468" 
+                        height="60" 
+                        scrolling="no" 
+                        border="0" 
+                        frameborder="0"
+                        class="ad-iframe">
+                    </iframe>
                 </div>
 
                 <!-- Featured Cryptocurrencies -->
@@ -465,18 +478,18 @@
             <div class="sidebar">
                 <!-- 300x250 Banner Ad -->
                 <div class="banner-ad banner-300x250">
-                    <!-- Zero Crypto Advertising Network 300x250 Banner Code -->
-                    <script type="text/javascript">
-                        var zc_ad_unit = "300x250";
-                        var zc_siteid = "your_site_id_here";
-                        var zc_position = "sidebar_banner";
-                    </script>
-                    <script type="text/javascript" src="https://ads.zerocrypto.com/banner.js"></script>
-                    <noscript>
-                        <div class="ad-placeholder">
-                            300x250 Ad - Enable JavaScript for ads
-                        </div>
-                    </noscript>
+                    <!-- Zero Crypto Advertising Network 300x250 Banner -->
+                    <iframe 
+                        src="https://zerads.com/ad/ad.php?width=300&ref=9953" 
+                        marginwidth="0" 
+                        marginheight="0" 
+                        width="300" 
+                        height="250" 
+                        scrolling="no" 
+                        border="0" 
+                        frameborder="0"
+                        class="ad-iframe">
+                    </iframe>
                 </div>
 
                 <!-- Quick Links -->
@@ -544,16 +557,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Additional Ad Script for Better Performance -->
-    <script type="text/javascript">
-        // Initialize ad tracking
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('CryptoHub - Ad integration ready');
-            
-            // You can add additional ad-related JavaScript here
-            // For example, tracking ad impressions or clicks
-        });
-    </script>
 </body>
 </html>
