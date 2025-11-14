@@ -3,111 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zero Ads Test - GitHub Pages</title>
+    <title>CryptoFaucet Pro - Zero Ads Integration</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f5f5f5;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .user-info {
+            font-size: 0.9rem;
+        }
+        
+        /* Ad Container Styles */
         .ad-container {
             background: white;
+            border-radius: 8px;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             text-align: center;
         }
+        
+        .ad-container h3 {
+            margin-bottom: 15px;
+            color: #28a745;
+            font-size: 1.2rem;
+        }
+        
+        .ad-frame {
+            margin: 10px 0;
+            border: 2px solid #e9ecef;
+            border-radius: 4px;
+        }
+        
+        .ad-row {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .ad-col {
+            flex: 1;
+        }
+        
+        /* Content Styles */
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1;
+            min-width: 150px;
+            font-weight: bold;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: #28a745;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        /* Status Styles */
         .status {
             padding: 10px;
             margin: 10px 0;
             border-radius: 4px;
+            font-size: 0.9rem;
         }
+        
         .success {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+        
         .info {
             background: #cce7ff;
             color: #004085;
             border: 1px solid #b3d7ff;
         }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ad-row {
+                flex-direction: column;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Zero Ads Integration Test</h1>
-    
-    <div class="ad-container">
-        <h3>728x90 Banner Test</h3>
-        <div class="status info">
-            Testing: zerads.com ad network | Ref: 9953
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-coins"></i> CryptoFaucet Pro
+                </div>
+                <div class="user-info">
+                    Wallet: t1fnnnSxp1XW4dkG8ZxJpNJykLSkq7seoWZ | Balance: 0.03402000 ZER
+                </div>
+            </div>
         </div>
-        
-        <!-- Zero Ads Integration -->
-        <iframe 
-            src="https://zerads.com/ad/ad.php?width=728&ref=9953" 
-            marginwidth="0" 
-            marginheight="0" 
-            width="728" 
-            height="90" 
-            scrolling="no" 
-            border="0" 
-            frameborder="0"
-            id="zeroads-frame">
-        </iframe>
-        
-        <div class="status" id="ad-status">
-            Loading ad...
+    </header>
+
+    <div class="container">
+        <!-- Ad 1: Top Leaderboard -->
+        <div class="ad-container">
+            <h3>Advertisement #1 - 728x90 Leaderboard</h3>
+            <div class="ad-frame">
+                <iframe 
+                    src="https://zerads.com/ad/ad.php?width=728&ref=9953" 
+                    marginwidth="0" 
+                    marginheight="0" 
+                    width="728" 
+                    height="90" 
+                    scrolling="no" 
+                    border="0" 
+                    frameborder="0"
+                    id="zeroads-1">
+                </iframe>
+            </div>
+            <div class="status info" id="status-1">
+                Loading advertisement #1...
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="content">
+            <h2>Welcome to CryptoFaucet Pro</h2>
+            <p>Earn ZER cryptocurrency through our advanced faucet system with multiple earning methods.</p>
+            
+            <div class="quick-actions">
+                <button class="action-btn" onclick="claimFaucet()">
+                    <i class="fas fa-faucet"></i> Claim Faucet
+                </button>
+                <button class="action-btn" onclick="showPTC()">
+                    <i class="fas fa-mouse-pointer"></i> View PTC Ads
+                </button>
+                <button class="action-btn" onclick="showReferral()">
+                    <i class="fas fa-users"></i> Referral Program
+                </button>
+                <button class="action-btn" onclick="showWithdraw()">
+                    <i class="fas fa-wallet"></i> Withdraw Funds
+                </button>
+            </div>
+        </div>
+
+        <!-- Ad Row: Two 300x250 Ads -->
+        <div class="ad-row">
+            <div class="ad-col">
+                <div class="ad-container">
+                    <h3>Advertisement #2 - 300x250 Medium Rectangle</h3>
+                    <div class="ad-frame">
+                        <iframe 
+                            src="https://zerads.com/ad/ad.php?width=300&height=250&ref=9953" 
+                            marginwidth="0" 
+                            marginheight="0" 
+                            width="300" 
+                            height="250" 
+                            scrolling="no" 
+                            border="0" 
+                            frameborder="0"
+                            id="zeroads-2">
+                        </iframe>
+                    </div>
+                    <div class="status info" id="status-2">
+                        Loading advertisement #2...
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ad-col">
+                <div class="ad-container">
+                    <h3>Advertisement #3 - 300x250 Medium Rectangle</h3>
+                    <div class="ad-frame">
+                        <iframe 
+                            src="https://zerads.com/ad/ad.php?width=300&height=250&ref=9953" 
+                            marginwidth="0" 
+                            marginheight="0" 
+                            width="300" 
+                            height="250" 
+                            scrolling="no" 
+                            border="0" 
+                            frameborder="0"
+                            id="zeroads-3">
+                        </iframe>
+                    </div>
+                    <div class="status info" id="status-3">
+                        Loading advertisement #3...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Content -->
+        <div class="content">
+            <h3>Start Earning Today!</h3>
+            <p>Join thousands of users earning ZER cryptocurrency through our platform:</p>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li>Faucet claims every hour</li>
+                <li>Paid-to-Click advertisements</li>
+                <li>Daily login bonuses</li>
+                <li>Referral commission program</li>
+                <li>Instant withdrawals</li>
+            </ul>
+        </div>
+
+        <!-- Stats -->
+        <div class="content">
+            <h3>Ad Performance</h3>
+            <div class="status info">
+                <strong>Ad Slots Active:</strong> 3 | <strong>Total Impressions:</strong> <span id="totalImpressions">0</span>
+            </div>
         </div>
     </div>
 
-    <div class="ad-container">
-        <h3>Troubleshooting Information</h3>
-        <div class="status info">
-            <strong>Common Issues:</strong><br>
-            1. Ad blockers may prevent ads from showing<br>
-            2. GitHub Pages may block external iframes<br>
-            3. Network restrictions in some regions<br>
-            4. Ad network may have no available ads
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Dashboard</a> | 
+                <a href="#">Withdraw</a> | 
+                <a href="#">Referral</a> | 
+                <a href="#">Support</a> |
+                <a href="#">FAQ</a>
+            </div>
+            <p>&copy; 2025 CryptoFaucet Pro. All Rights Reserved.</p>
+            <p>Powered by Zero Ads Network</p>
         </div>
-    </div>
+    </footer>
 
     <script>
-        // Check if ad loaded successfully
-        const adFrame = document.getElementById('zeroads-frame');
-        const statusDiv = document.getElementById('ad-status');
+        // Track impressions
+        let totalImpressions = 0;
         
-        adFrame.onload = function() {
-            try {
-                // Try to access frame content (may be blocked by CORS)
+        // Ad loading status tracking
+        function setupAdTracking(adId, statusId, adNumber) {
+            const adFrame = document.getElementById(adId);
+            const statusDiv = document.getElementById(statusId);
+            
+            adFrame.onload = function() {
                 statusDiv.className = 'status success';
-                statusDiv.innerHTML = '✅ Ad frame loaded successfully!';
-            } catch (e) {
-                statusDiv.className = 'status success';
-                statusDiv.innerHTML = '✅ Frame loaded (content access restricted)';
-            }
-        };
-        
-        adFrame.onerror = function() {
-            statusDiv.className = 'status error';
-            statusDiv.innerHTML = '❌ Failed to load ad frame';
-        };
-        
-        // Fallback check after 5 seconds
-        setTimeout(function() {
-            if (statusDiv.innerHTML === 'Loading ad...') {
+                statusDiv.innerHTML = `✅ Advertisement #${adNumber} loaded successfully!`;
+                totalImpressions++;
+                document.getElementById('totalImpressions').textContent = totalImpressions;
+            };
+            
+            adFrame.onerror = function() {
                 statusDiv.className = 'status error';
-                statusDiv.innerHTML = '⚠️ Ad may be blocked or no ads available';
-            }
-        }, 5000);
+                statusDiv.innerHTML = `❌ Advertisement #${adNumber} failed to load`;
+            };
+            
+            // Fallback check
+            setTimeout(function() {
+                if (statusDiv.innerHTML.includes('Loading')) {
+                    statusDiv.className = 'status info';
+                    statusDiv.innerHTML = `⚠️ Advertisement #${adNumber} - No ad available or blocked`;
+                }
+            }, 5000);
+        }
+        
+        // Initialize ad tracking for all 3 ads
+        document.addEventListener('DOMContentLoaded', function() {
+            setupAdTracking('zeroads-1', 'status-1', 1);
+            setupAdTracking('zeroads-2', 'status-2', 2);
+            setupAdTracking('zeroads-3', 'status-3', 3);
+        });
+        
+        // Function to refresh all ads
+        function refreshAllAds() {
+            const ads = ['zeroads-1', 'zeroads-2', 'zeroads-3'];
+            const statuses = ['status-1', 'status-2', 'status-3'];
+            
+            ads.forEach((adId, index) => {
+                const adFrame = document.getElementById(adId);
+                const statusDiv = document.getElementById(statuses[index]);
+                
+                statusDiv.className = 'status info';
+                statusDiv.innerHTML = `Refreshing advertisement #${index + 1}...`;
+                
+                // Force refresh by adding timestamp
+                const currentSrc = adFrame.src;
+                const separator = currentSrc.includes('?') ? '&' : '?';
+                adFrame.src = currentSrc + separator + 't=' + new Date().getTime();
+            });
+            
+            alert('All ads refreshed!');
+        }
+        
+        // Earning functions
+        function claimFaucet() {
+            alert('🎉 Faucet claimed! +0.0005 ZER');
+        }
+        
+        function showPTC() {
+            alert('📱 Opening PTC Ads Section...');
+        }
+        
+        function showReferral() {
+            alert('👥 Referral program: Earn 10% from friends!');
+        }
+        
+        function showWithdraw() {
+            alert('💰 Minimum withdrawal: 0.01 ZER\nCurrent balance: 0.03402000 ZER');
+        }
+        
+        // Auto-refresh ads every 60 seconds
+        setInterval(refreshAllAds, 60000);
     </script>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
 </html>
